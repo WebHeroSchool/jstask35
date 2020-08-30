@@ -4,10 +4,11 @@ console.log(url);
 let nickName = (link) => {
   let arr = link.split('=');
   let nick = arr[arr.length-1];
+  console.log(nick);
   if(nick==undefined) {
     nick = "x1nax";
   }
-  return nick
+  return nick;
 }
 nickName(url);
 console.log(nickName(url));
