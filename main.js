@@ -1,12 +1,12 @@
-
-
-let str = "https://github.com/?username=6thSence";
+let url = window.location.toString();
+console.log(url);
+//let str = "https://github.com/?username=6thSence";
 let nickName = (link) => {
   let arr = link.split('=');
   return (arr[arr.length-1]);
 }
-nickName(str);
-
+nickName(url);
+console.log(nickName(url));
 let info = (user) => {
   fetch('https://api.github.com/users/'+ user)
     .then(res => res.json())
@@ -29,4 +29,4 @@ let info = (user) => {
 
 }
 
-info(nickName(str));
+info(nickName(url));
