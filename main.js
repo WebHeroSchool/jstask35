@@ -3,7 +3,7 @@ console.log(url);
 //let str = "https://github.com/?username=6thSence";
 let nickName = (link) => {
   let arr = link.split('=');
-  let nick = arr[arr.length-1];
+  let nick = arr[1];
   console.log(nick);
   if(nick==undefined) {
     nick = "x1nax";
