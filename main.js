@@ -3,7 +3,7 @@ let url = window.location.toString();
 let nickName = (link) => {
   let arr = link.split('=');
   let nick = arr[1];
-  if(nick === undefined) {
+  if(!nick) {
     nick = "x1nax";
   }
   return nick;
