@@ -1,6 +1,5 @@
 let url = window.location.toString();
-console.log(url);
-//let str = "https://github.com/?username=6thSence";
+
 let nickName = (link) => {
   let arr = link.split('=');
   console.log(arr);
@@ -11,9 +10,6 @@ let nickName = (link) => {
   }
   return nick;
 }
-nickName(url);
-console.log(nickName(url));
-
 
 let info = (user) => {
   fetch('https://api.github.com/users/'+ user)
@@ -26,7 +22,7 @@ let info = (user) => {
       err.res = res;
       throw err;
       }
-})
+  })
   .then(res => {
     let newImg = document.createElement("IMG");
     let newp = document.createElement("p");
@@ -41,7 +37,7 @@ let info = (user) => {
     document.body.appendChild(newp);
     document.body.appendChild(newImg);
     })
-    .catch(err => document.body.innerHTML = 'Ты написал ерунду');
+    .catch(err => document.body.innerHTML = 'Такой пользователь не существует');
 }
 
 info(nickName(url));
