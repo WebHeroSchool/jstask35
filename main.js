@@ -3,7 +3,7 @@ let url = window.location.toString();
 let nickName = (link) => {
   let arr = link.split('=');
   let nick = arr[1];
-  if(nick===undefined) {
+  if(nick === undefined) {
     nick = "x1nax";
   }
   return nick;
@@ -35,7 +35,7 @@ let info = (user) => {
     document.body.appendChild(newp);
     document.body.appendChild(newImg);
     })
-    .catch(err => document.body.innerHTML = 'Такой пользователь не существует');
+    .catch(err => document.body.innerHTML = "Такой пользователь не существует");
 }
 
 info(nickName(url));
