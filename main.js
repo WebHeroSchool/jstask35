@@ -35,7 +35,7 @@ let info = (user) => {
     document.body.appendChild(newp);
     document.body.appendChild(newImg);
     })
-    .catch(()=> document.body.innerHTML = "Такой пользователь не существует");
+    .catch(() => document.body.innerHTML = "Такой пользователь не существует");
 }
 
 info(nickName(url));
