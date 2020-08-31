@@ -2,10 +2,8 @@ let url = window.location.toString();
 
 let nickName = (link) => {
   let arr = link.split('=');
-  console.log(arr);
   let nick = arr[1];
-  console.log(nick);
-  if(nick==undefined) {
+  if(nick===undefined) {
     nick = "x1nax";
   }
   return nick;
@@ -14,7 +12,7 @@ let nickName = (link) => {
 let info = (user) => {
   fetch('https://api.github.com/users/'+ user)
   .then(res => {
-    if (res.status != 404) {
+    if (res.status !== 404) {
       return res.json();
     }
     else {
