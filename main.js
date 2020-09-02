@@ -1,4 +1,10 @@
+let main = document.querySelector('.main');
+let preload = document.querySelector('.container');
 
+setTimeout (() => {
+	main.style.visibility = 'visible';
+  preload.style.display = 'none';
+},3000);
 let url = window.location.toString();
 
 let getNickName = (link) => {
@@ -23,9 +29,8 @@ let getDate = new Promise((resolve, reject) => {
 Promise.all ([getDate, getInfo])
     .then(([now, nickname]) => {
       let newTime = document.createElement("p");
-      console.log(now);
       newTime.innerHTML = now;
-      document.body.appendChild(newTime);
+      main.appendChild(newTime);
       fetch('https://api.github.com/users/'+ nickName)
       .then(res => {
         if (res.status !== 404) {
@@ -46,10 +51,10 @@ Promise.all ([getDate, getInfo])
         newh1.innerHTML = res.name;
         newp.innerHTML = res.bio;
         newA.href = res.html_url;
-        document.body.appendChild(newA);
+        main.appendChild(newA);
         newA.appendChild(newh1);
-        document.body.appendChild(newp);
-        document.body.appendChild(newImg);
+        main.appendChild(newp);
+        main.appendChild(newImg);
         })
         .catch(() => document.body.innerHTML = "Такой пользователь не существует");
     });
