@@ -21,12 +21,11 @@ let getDate = new Promise((resolve, reject) => {
 });
 
 Promise.all ([getDate, getInfo])
-    .then((now) => {
+    .then(([now, nickname]) => {
       let newTime = document.createElement("p");
+      console.log(now);
       newTime.innerHTML = now;
       document.body.appendChild(newTime);
-    })
-    .then(nickName => {
       fetch('https://api.github.com/users/'+ nickName)
       .then(res => {
         if (res.status !== 404) {
