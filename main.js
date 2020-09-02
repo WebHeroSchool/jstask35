@@ -27,9 +27,9 @@ let getDate = new Promise((resolve, reject) => {
 });
 
 Promise.all ([getDate, getInfo])
-    .then(([now, nickname]) => {
+    .then(([time, nickname]) => {
       let newTime = document.createElement("p");
-      newTime.innerHTML = now;
+      newTime.innerHTML = time;
       main.appendChild(newTime);
       fetch("https://api.github.com/users/"+ nickName)
       .then(res => {
