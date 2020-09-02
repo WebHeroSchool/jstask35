@@ -1,9 +1,9 @@
-let main = document.querySelector('.main');
-let preload = document.querySelector('.container');
+let main = document.querySelector(".main");
+let preload = document.querySelector(".container");
 
 setTimeout (() => {
-	main.style.visibility = 'visible';
-  preload.style.display = 'none';
+	main.style.visibility = "visible";
+  preload.style.display = "none";
 },3000);
 let url = window.location.toString();
 
@@ -15,7 +15,7 @@ let getNickName = (link) => {
   }
   return nick;
 }
-nickName = getNickName(url);
+let nickName = getNickName(url);
 
 let getInfo = new Promise((resolve, reject) => {
   setTimeout(() => nickName ? resolve(nickName) : reject("ошибка"), 2000);
@@ -31,7 +31,7 @@ Promise.all ([getDate, getInfo])
       let newTime = document.createElement("p");
       newTime.innerHTML = now;
       main.appendChild(newTime);
-      fetch('https://api.github.com/users/'+ nickName)
+      fetch("https://api.github.com/users/"+ nickName)
       .then(res => {
         if (res.status !== 404) {
           return res.json();
